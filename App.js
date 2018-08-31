@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
-class Greeting extends Component {
+export default class LotsOfStyles extends Component {
   render() {
     return (
-      <Text>Hello, {this.props.name}</Text>
-    );
-  }
-}
-
-export default class LotsOfGreeting extends Component {
-  render() {
-    return (
-      <View style={{ alignItems: 'center', backgroundColor: '#ffdd00' }}>
-          <Greeting name="Rajneesh"/>
-          <Greeting name="Amit" />
-          <Greeting name="seema" />
+      <View>
+        <Text style={styles.red}>just red</Text>
+        <Text style={styles.bigblue}>just bigblue</Text>
+        <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
+        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
+  },
+});
+
+// skip this line if using Create React Native App
+AppRegistry.registerComponent('AwesomeProject', () => LotsOfStyles);
